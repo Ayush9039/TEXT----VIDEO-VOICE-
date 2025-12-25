@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoGhe_p-CjkyEB-D-Stc-0oldKsuiJCHM8AteJ_WvFNST9KFlEWYI1OxRYnUsQMZRyaSs&usqp=CAU') no-repeat center center/cover;
+            color: #fff;
+            position: relative;
+            filter: brightness(1.3) contrast(1.1); /* Brightness + thoda contrast */
+        }
+
+        /* Overlay halka sa dark (lekin bahut zyada nahi) */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4); /* overlays opacity halki hai */
+            z-index: 0;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+
+        p {
+            font-size: 1.5em;
+            color: #00ffcc;
+            margin: 10px 0 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            font-size: 20px;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            background: linear-gradient(90deg, #00ffcc, #4CAF50);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -75%;
+            width: 50%;
+            height: 100%;
+            background: rgba(255,255,255,0.3);
+            transform: skewX(-25deg);
+            animation: shine 2s infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -75%; }
+            100% { left: 125%; }
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px #00ffcc;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2em; }
+            p { font-size: 1.2em; }
+            .btn { font-size: 18px; padding: 12px 30px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Welcome</h1>
+        <p>Voice & Video Generator</p>
+        <a href="/generate" class="btn">Get Started</a>
+    </div>
+</body>
+</html>
